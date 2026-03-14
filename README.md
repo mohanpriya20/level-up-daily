@@ -1,14 +1,12 @@
 # level-up-daily
 
-## Stacks
+## Strings
 
 
-| Problem                                                  | Solution                                             | Explanation                                                |
-| -------------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- |
-| [01 - Text Editor](stacks/01-text-editor/)               | [solution](stacks/01-text-editor/solution.py)        | [explanation](stacks/01-text-editor/explanation.md)        |
-| [02 - Bracket Balancing](stacks/02-bracket-balancing/)   | [solution](stacks/02-bracket-balancing/solution.py)  | [explanation](stacks/02-bracket-balancing/explanation.md)  |
-| [03 - Reverse String](stacks/03-reverse-string/)         | [solution](stacks/03-reverse-string/solution.py)     | [explanation](stacks/03-reverse-string/explanation.md)     |
-| [04 - Postfix Evaluation](stacks/04-postfix-evaluation/) | [solution](stacks/04-postfix-evaluation/solution.py) | [explanation](stacks/04-postfix-evaluation/explanation.md) |
+| Problem                                         | Solution                                         | Explanation                                            |
+| ----------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------ |
+| [01 - Caesar Cipher](strings/01-caesar-cipher/) | [solution](strings/01-caesar-cipher/solution.py) | [explanation](strings/01-caesar-cipher/explanation.md) |
+
 
 
 ## Hashing, dictionaries & sets
@@ -18,14 +16,6 @@
 | ----------------------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------- |
 | [01 - Anagram Pairs in Two Lists](hashing-dicts-sets/01-anagram-pairs/) | [solution](hashing-dicts-sets/01-anagram-pairs/solution.py) | [explanation](hashing-dicts-sets/01-anagram-pairs/explanation.md) |
 | [02 - Keyword Index](hashing-dicts-sets/02-keyword-index/)              | [solution](hashing-dicts-sets/02-keyword-index/solution.py) | [explanation](hashing-dicts-sets/02-keyword-index/explanation.md) |
-
-
-## Strings
-
-
-| Problem                                         | Solution                                         | Explanation                                            |
-| ----------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------ |
-| [01 - Caesar Cipher](strings/01-caesar-cipher/) | [solution](strings/01-caesar-cipher/solution.py) | [explanation](strings/01-caesar-cipher/explanation.md) |
 
 
 ## Recursion, Searching and Sorting
@@ -46,4 +36,17 @@
 | [11 - K-th ordinal statistic](sorting-searching/11-kth-ordinal-statistic/)        | [solution](sorting-searching/11-kth-ordinal-statistic/solution.py) | [explanation](sorting-searching/11-kth-ordinal-statistic/explanation.md) |
 | [12 - Count inversions](sorting-searching/12-count-inversions/)                  | [solution](sorting-searching/12-count-inversions/solution.py)      | [explanation](sorting-searching/12-count-inversions/explanation.md)     |
 
+
+## Stacks
+
+
+| Problem                                                  | Solution                                             | Explanation                                                |
+| -------------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- |
+| [01 - Text Editor](stacks/01-text-editor/)               | [solution](stacks/01-text-editor/solution.py)        | [explanation](stacks/01-text-editor/explanation.md)        |
+| [02 - Bracket Balancing](stacks/02-bracket-balancing/)   | [solution](stacks/02-bracket-balancing/solution.py)  | [explanation](stacks/02-bracket-balancing/explanation.md)  |
+| [03 - Reverse String](stacks/03-reverse-string/)         | [solution](stacks/03-reverse-string/solution.py)     | [explanation](stacks/03-reverse-string/explanation.md)     |
+| [04 - Postfix Evaluation](stacks/04-postfix-evaluation/) | [solution](stacks/04-postfix-evaluation/solution.py) | [explanation](stacks/04-postfix-evaluation/explanation.md) |
+| [05 - Next Smaller Element](stacks/05-next-smaller-element/) | [solution](stacks/05-next-smaller-element/solution.py) | [explanation](stacks/05-next-smaller-element/explanation.md) |
+| [06 - Predicting Cooler Days](stacks/06-predicting-cooler-days/) | [solution](stacks/06-predicting-cooler-days/solution.py) | [explanation](stacks/06-predicting-cooler-days/explanation.md) |
+| [07 - Max Stack](stacks/07-max-stack/) | [solution](stacks/07-max-stack/solution.py) | [explanation](stacks/07-max-stack/explanation.md) |
 
