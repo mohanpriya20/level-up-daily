@@ -21,3 +21,11 @@
 | Problem | Solution | Explanation |
 |--------|----------|-------------|
 | [01 - Caesar Cipher](strings/01-caesar-cipher/) | [solution](strings/01-caesar-cipher/solution.py) | [explanation](strings/01-caesar-cipher/explanation.md) |
+
+## Sorting and searching
+
+| Problem | Solution | Explanation |
+|--------|----------|-------------|
+| [01 - Fibonacci](sorting-searching/01-fibonacci/) | [solution](sorting-searching/01-fibonacci/solution.py) | [explanation](sorting-searching/01-fibonacci/explanation.md) |
+| [02 - Factorial](sorting-searching/02-factorial/) | [solution](sorting-searching/02-factorial/solution.py) | [explanation](sorting-searching/02-factorial/explanation.md) |
+| [03 - Sum of even-indexed](sorting-searching/03-sum-even-indexed/) | [solution](sorting-searching/03-sum-even-indexed/solution.py) | [explanation](sorting-searching/03-sum-even-indexed/explanation.md) |
