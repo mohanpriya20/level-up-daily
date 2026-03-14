@@ -1,6 +1,6 @@
 # Find or Define Insert Position in a Sorted List — solution
 
-def insert_position(arr, target):
+def insert_position_in_sorted_list(arr, target):
     """
     Return the index where target would be inserted to keep arr sorted.
     If target is already present, return its index (or leftmost insert position).
@@ -19,5 +19,5 @@ def insert_position(arr, target):
 if __name__ == "__main__":
     arr = list(map(int, input("Enter sorted list (space-separated): ").split()))
     target = int(input("Enter target: "))
-    result = insert_position(arr, target)
+    result = insert_position_in_sorted_list(arr, target)
     print("Insert position:", result)
