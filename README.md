@@ -43,5 +43,7 @@
 | [08 - Quicksort (Lomuto)](sorting-searching/08-quicksort-lomuto/)                  | [solution](sorting-searching/08-quicksort-lomuto/solution.py)      | [explanation](sorting-searching/08-quicksort-lomuto/explanation.md)      |
 | [09 - Quicksort (Hoare)](sorting-searching/09-quicksort-hoare/)                    | [solution](sorting-searching/09-quicksort-hoare/solution.py)       | [explanation](sorting-searching/09-quicksort-hoare/explanation.md)       |
 | [10 - Merge sort](sorting-searching/10-merge-sort/)                               | [solution](sorting-searching/10-merge-sort/solution.py)           | [explanation](sorting-searching/10-merge-sort/explanation.md)           |
+| [11 - K-th ordinal statistic](sorting-searching/11-kth-ordinal-statistic/)        | [solution](sorting-searching/11-kth-ordinal-statistic/solution.py) | [explanation](sorting-searching/11-kth-ordinal-statistic/explanation.md) |
+| [12 - Count inversions](sorting-searching/12-count-inversions/)                  | [solution](sorting-searching/12-count-inversions/solution.py)      | [explanation](sorting-searching/12-count-inversions/explanation.md)     |
 
 
