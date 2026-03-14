@@ -14,3 +14,10 @@
 | Problem | Solution | Explanation |
 |--------|----------|-------------|
 | [01 - Anagram Pairs in Two Lists](hashing-dicts-sets/01-anagram-pairs/) | [solution](hashing-dicts-sets/01-anagram-pairs/solution.py) | [explanation](hashing-dicts-sets/01-anagram-pairs/explanation.md) |
+| [02 - Keyword Index](hashing-dicts-sets/02-keyword-index/) | [solution](hashing-dicts-sets/02-keyword-index/solution.py) | [explanation](hashing-dicts-sets/02-keyword-index/explanation.md) |
+
+## Strings
+
+| Problem | Solution | Explanation |
+|--------|----------|-------------|
+| [01 - Caesar Cipher](strings/01-caesar-cipher/) | [solution](strings/01-caesar-cipher/solution.py) | [explanation](strings/01-caesar-cipher/explanation.md) |
