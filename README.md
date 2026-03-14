@@ -36,5 +36,9 @@
 | [01 - Fibonacci](sorting-searching/01-fibonacci/)                  | [solution](sorting-searching/01-fibonacci/solution.py)        | [explanation](sorting-searching/01-fibonacci/explanation.md)        |
 | [02 - Factorial](sorting-searching/02-factorial/)                  | [solution](sorting-searching/02-factorial/solution.py)        | [explanation](sorting-searching/02-factorial/explanation.md)        |
 | [03 - Sum of even-indexed](sorting-searching/03-sum-even-indexed/) | [solution](sorting-searching/03-sum-even-indexed/solution.py) | [explanation](sorting-searching/03-sum-even-indexed/explanation.md) |
+| [04 - Binary search reverse](sorting-searching/04-binary-search-reverse/) | [solution](sorting-searching/04-binary-search-reverse/solution.py) | [explanation](sorting-searching/04-binary-search-reverse/explanation.md) |
+| [05 - Search in rotated sorted array](sorting-searching/05-search-rotated-sorted/) | [solution](sorting-searching/05-search-rotated-sorted/solution.py) | [explanation](sorting-searching/05-search-rotated-sorted/explanation.md) |
+| [06 - First and last position](sorting-searching/06-first-last-position/) | [solution](sorting-searching/06-first-last-position/solution.py) | [explanation](sorting-searching/06-first-last-position/explanation.md) |
+| [07 - Insert position](sorting-searching/07-insert-position/) | [solution](sorting-searching/07-insert-position/solution.py) | [explanation](sorting-searching/07-insert-position/explanation.md) |
 
 
