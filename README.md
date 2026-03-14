@@ -42,5 +42,6 @@
 | [07 - Insert position](sorting-searching/07-insert-position/)                      | [solution](sorting-searching/07-insert-position/solution.py)       | [explanation](sorting-searching/07-insert-position/explanation.md)       |
 | [08 - Quicksort (Lomuto)](sorting-searching/08-quicksort-lomuto/)                  | [solution](sorting-searching/08-quicksort-lomuto/solution.py)      | [explanation](sorting-searching/08-quicksort-lomuto/explanation.md)      |
 | [09 - Quicksort (Hoare)](sorting-searching/09-quicksort-hoare/)                    | [solution](sorting-searching/09-quicksort-hoare/solution.py)       | [explanation](sorting-searching/09-quicksort-hoare/explanation.md)       |
+| [10 - Merge sort](sorting-searching/10-merge-sort/)                               | [solution](sorting-searching/10-merge-sort/solution.py)           | [explanation](sorting-searching/10-merge-sort/explanation.md)           |
 
 
