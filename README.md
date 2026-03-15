@@ -49,4 +49,12 @@
 | [05 - Next Smaller Element](stacks/05-next-smaller-element/) | [solution](stacks/05-next-smaller-element/solution.py) | [explanation](stacks/05-next-smaller-element/explanation.md) |
 | [06 - Predicting Cooler Days](stacks/06-predicting-cooler-days/) | [solution](stacks/06-predicting-cooler-days/solution.py) | [explanation](stacks/06-predicting-cooler-days/explanation.md) |
 | [07 - Max Stack](stacks/07-max-stack/) | [solution](stacks/07-max-stack/solution.py) | [explanation](stacks/07-max-stack/explanation.md) |
+| [08 - Next Greater Element](stacks/08-next-greater-element/) | [solution](stacks/08-next-greater-element/solution.py) | [explanation](stacks/08-next-greater-element/explanation.md) |
+
+
+## Queues
+
+
+| Problem | Solution | Explanation |
+| ------- | -------- | ----------- |
 

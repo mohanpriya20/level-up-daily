@@ -5,19 +5,15 @@ def days_until_cooler(temps):
     For each day i, return how many days until a strictly cooler day (to the right).
     If no cooler day exists, return -1. Uses a stack (monotonic, right-to-left scan).
     """
-    result = [-1] * len(temps)
+    res = [-1]*len(temps)
     stack = []
-
-    for i in range(len(temps) - 1, -1, -1):
-        while stack and temps[stack[-1]] >= temps[i]:
+    for i in range(len(temps)):
+        while stack and temps[i]<temps[stack[-1]]:
+            res[stack[-1]]=i-stack[-1]
             stack.pop()
-        if not stack:
-            stack.append(i)
-        else:
-            if temps[stack[-1]] < temps[i]:
-                result[i] = stack[-1] - i
-                stack.append(i)
-    return result
+        stack.append(i)
+    return res
+            
 
 
 if __name__ == "__main__":

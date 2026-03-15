@@ -1,4 +1,4 @@
-# Previous Smaller Element (to the right) — solution
+# Previous Smaller Element (to the left) — solution
 
 def previous_smaller_elements(arr):
     """
@@ -12,8 +12,9 @@ def previous_smaller_elements(arr):
     for i in range(n):
         # arr[i] is the previous smaller for every index j in stack where arr[j] > arr[i]
         while stack and arr[stack[-1]] > arr[i]:
-            j = stack.pop()
-            result[j] = arr[i]
+           stack.pop()
+        if stack and arr[stack[-1]] < arr[i]:
+            result[i] = arr[stack[-1]]
         stack.append(i)
     return result
 

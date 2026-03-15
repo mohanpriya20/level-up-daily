@@ -30,6 +30,7 @@ if __name__ == "__main__":
     stack = MaxStack()
     stack.push(5)
     print(stack.get_max())   # Expected: 5
+    stack.push(5)
     stack.push(1)
     print(stack.get_max())   # Expected: 5
     stack.push(6)
