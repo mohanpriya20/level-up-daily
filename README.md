@@ -57,4 +57,6 @@
 
 | Problem | Solution | Explanation |
 | ------- | -------- | ----------- |
+| [01 - Queue Interleaving](queues/01-queue-interleaving/) | [solution](queues/01-queue-interleaving/solution.py) | [explanation](queues/01-queue-interleaving/explanation.md) |
+| [02 - Moving Average from Data Stream](queues/02-moving-average-from-data-stream/) | [solution](queues/02-moving-average-from-data-stream/solution.py) | [explanation](queues/02-moving-average-from-data-stream/explanation.md) |
 
