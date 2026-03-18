@@ -61,10 +61,10 @@
 | [02 - Moving Average from Data Stream](queues/02-moving-average-from-data-stream/) | [solution](queues/02-moving-average-from-data-stream/solution.py) | [explanation](queues/02-moving-average-from-data-stream/explanation.md) |
 
 
-## Linked list
+## Linked lists
 
 
 | Problem | Solution | Explanation |
 | ------- | -------- | ----------- |
-| [01 - Linked list template](linked-list/01-linked-list-template/) | [solution](linked-list/01-linked-list-template/solution.py) | [explanation](linked-list/01-linked-list-template/explanation.md) |
+| [01 - Singly linked list](linked-lists/01-singly-linked-list/) | [solution](linked-lists/01-singly-linked-list/solution.py) | [explanation](linked-lists/01-singly-linked-list/explanation.md) |
 

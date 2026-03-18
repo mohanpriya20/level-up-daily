@@ -16,6 +16,6 @@ Each node has:
 - **get_at(index)** — return data at index (O(index)).
 - **len(ll)** — number of nodes (O(n)).
 - **to_list()** — return Python list of all data.
-- **from_list(arr)** — build a linked list from a list (class method).
+- **from_list(arr)** — build a singly linked list from a list (class method).
 
-Use this template for linked-list problems; copy or import as needed.
+Use this template for singly linked list problems; copy or import as needed.
