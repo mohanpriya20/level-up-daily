@@ -1,4 +1,4 @@
-# Queue Interleaving — solution
+# Queue Interleaving — solution with queue operations only and for even length
 
 from collections import deque
 
