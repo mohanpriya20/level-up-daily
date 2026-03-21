@@ -39,13 +39,11 @@ class LinkedList:
         len = self.size()
         if(index < 0 or index > len):
             return
-        new_node = Node(data)
-        if index == 0 and self.head is not None:
-            new_node.next = self.head
-            self.head = new_node
-        elif index == 0 and self.head is None:
-            self.head = new_node
+        if index == 0:
+            self.add_first(data)
+            return
         else:
+            new_node = Node(data)
             while(index > 0):
                 prev = current
                 current = current.next
@@ -125,7 +123,7 @@ class LinkedList:
     def print_list(self):
         current = self.head
         while(current is not None):
-            print(current.data, end=" ")
+            print(current.data, end="-->")
             current = current.next
         print()
 
