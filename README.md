@@ -11,6 +11,7 @@
 
 ## Hashing, dictionaries & sets
 
+[Concept Notes](hashing-dicts-sets/NOTES.md) &nbsp;|&nbsp; [Interactive Infographic](hashing-dicts-sets/infographic.html)
 
 | Problem                                                                 | Solution                                                    | Explanation                                                       |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------- |

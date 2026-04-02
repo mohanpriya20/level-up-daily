@@ -20,6 +20,18 @@ class LinkedList:
         else:
             new_node.next = self.head
             self.head = new_node
+        
+    def delete_first(self):
+        if self.head is not None:
+            self.head = self.head.next
+        else:
+            return
+        
+    def get_first(self):
+        if self.head is not None:
+            return self.head.data
+        else:
+            return None
     
     #add a node at the end of the list
     def add_last(self, data):
@@ -32,7 +44,27 @@ class LinkedList:
                 current = current.next
             #add the new node to the end of the list
             current.next = new_node
-    
+            
+    def delete_last(self):
+        if self.head is None or self.head.next is None:
+            self.delete_first()
+            return
+        current = self.head
+        prev = None
+        while current.next is not None:
+            prev = current
+            current = current.next
+        prev.next = None
+        
+    def get_last(self):
+        if self.head is not None:
+            current = self.head
+            while(current.next is not None):
+                current = current.next
+            return current.data
+        else:
+            return None
+       
     def add_at_index(self, index, data):
         prev = None
         current = self.head
@@ -44,32 +76,13 @@ class LinkedList:
             return
         else:
             new_node = Node(data)
-            while(index > 0):
+            while(index > 0 and current is not None):
                 prev = current
                 current = current.next
                 index -= 1
             new_node.next = current 
             prev.next = new_node
-            
-    def delete_first(self):
-        if self.head is not None:
-            self.head = self.head.next
-        else:
-            return
-        
-    def delete_last(self):
-        if self.head is None:
-            return
-        if self.head.next is None:
-            self.head = None
-            return
-        current = self.head
-        prev = None
-        while current.next is not None:
-            prev = current
-            current = current.next
-        prev.next = None
-        
+         
     def delete_at_index(self, index):
         if self.head is None or index < 0:
             return
@@ -86,21 +99,6 @@ class LinkedList:
             return  # index out of range
         prev.next = current.next
         
-    def get_first(self):
-        if self.head is not None:
-            return self.head.data
-        else:
-            return None
-        
-    def get_last(self):
-        if self.head is not None:
-            current = self.head
-            while(current.next is not None):
-                current = current.next
-            return current.data
-        else:
-            return None
-        
     def get_at_index(self, index):
         if index < 0 or index >= self.size():
             return None
@@ -110,6 +108,8 @@ class LinkedList:
         while index > 0 and current is not None:
             current = current.next
             index -= 1
+        if current is None:
+            return None
         return current.data
     
     def size(self):

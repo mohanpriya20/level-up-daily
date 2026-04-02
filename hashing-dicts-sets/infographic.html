@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hashing, Dicts & Sets — Infographic</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Code+Pro:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --cream: #f5f0e8;
+    --amber: #e8a838;
+    --teal: #2d6a6a;
+    --rust: #c44536;
+    --sage: #6b8f71;
+    --slate: #4a4e69;
+    --light-amber: #fdf0d5;
+    --code-bg: #1a1a2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--ink);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(232,168,56,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 70% 60%, rgba(45,106,106,0.12) 0%, transparent 50%);
+    animation: drift 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-3%, 2%) rotate(2deg); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 span { color: var(--amber); }
+
+  .hero p {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* --- Section --- */
+  .section {
+    padding: 5rem 0;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s, transform 0.8s;
+  }
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+    position: relative;
+    display: inline-block;
+  }
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--amber);
+    border-radius: 2px;
+  }
+
+  .section-sub {
+    color: var(--slate);
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+    max-width: 650px;
+  }
+
+  /* --- Hash Table Diagram --- */
+  .hash-table-diagram {
+    display: grid;
+    grid-template-columns: 200px 60px 1fr;
+    gap: 0.5rem 1.5rem;
+    align-items: center;
+    margin: 2rem 0;
+  }
+
+  .ht-key {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    background: var(--light-amber);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid var(--amber);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .ht-key:hover {
+    background: var(--amber);
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  .ht-arrow {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  .ht-bucket {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .bucket-slot {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.85rem;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .bucket-slot.empty {
+    background: #ddd;
+    color: #999;
+  }
+  .bucket-slot.collision {
+    background: var(--rust);
+    color: #fff;
+  }
+  .chain-arrow {
+    color: var(--rust);
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .bucket-index {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.75rem;
+    color: var(--slate);
+    position: absolute;
+    top: -18px;
+    left: 4px;
+  }
+
+  /* --- Collision Methods --- */
+  .collision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .collision-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--teal);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .collision-card:nth-child(2) { border-top-color: var(--rust); }
+  .collision-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
+  .collision-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  .collision-card p { color: var(--slate); font-size: 0.95rem; }
+
+  .chain-visual, .probe-visual {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    margin: 1.2rem 0;
+    flex-wrap: wrap;
+  }
+  .cv-box {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
+    border: 2px solid;
+  }
+  .cv-box.filled { background: var(--teal); color: #fff; border-color: var(--teal); }
+  .cv-box.collision-fill { background: var(--rust); color: #fff; border-color: var(--rust); }
+  .cv-box.empty-slot { background: #f0f0f0; color: #aaa; border-color: #ccc; }
+  .cv-arrow { font-weight: 700; color: var(--slate); }
+
+  /* --- Operations Table --- */
+  .ops-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .ops-table th {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.8rem 1rem;
+    text-align: left;
+  }
+  .ops-table th:first-child { border-radius: 10px 0 0 0; }
+  .ops-table th:last-child { border-radius: 0 10px 0 0; }
+  .ops-table td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid #e0dcd4;
+  }
+  .ops-table tr:hover td { background: var(--light-amber); }
+  .ops-table .tag {
+    display: inline-block;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.8rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .tag-green { background: #d4edda; color: #155724; }
+  .tag-yellow { background: #fff3cd; color: #856404; }
+  .tag-red { background: #f8d7da; color: #721c24; }
+
+  /* --- Set Operations Venn --- */
+  .venn-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .venn-card {
+    text-align: center;
+    width: 220px;
+  }
+  .venn-card h4 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  .venn-card p {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.85rem;
+    color: var(--slate);
+    margin-top: 0.5rem;
+  }
+
+  .venn-svg {
+    width: 200px;
+    height: 140px;
+  }
+  .venn-a { fill: rgba(45,106,106,0.35); stroke: var(--teal); stroke-width: 2; }
+  .venn-b { fill: rgba(232,168,56,0.35); stroke: var(--amber); stroke-width: 2; }
+  .venn-highlight { fill: rgba(196,69,54,0.5); }
+
+  /* --- Hashable Grid --- */
+  .hashable-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .hashable-item {
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.3s;
+    cursor: default;
+  }
+  .hashable-item:hover { transform: scale(1.08); }
+  .hashable-yes {
+    background: #d4edda;
+    color: #155724;
+    border: 2px solid #a3d9a5;
+  }
+  .hashable-no {
+    background: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+  }
+  .hashable-label {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-top: 4px;
+    opacity: 0.7;
+  }
+
+  /* --- Patterns --- */
+  .patterns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .pattern-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--sage);
+    transition: transform 0.3s;
+  }
+  .pattern-card:nth-child(2) { border-left-color: var(--amber); }
+  .pattern-card:nth-child(3) { border-left-color: var(--teal); }
+  .pattern-card:nth-child(4) { border-left-color: var(--rust); }
+  .pattern-card:nth-child(5) { border-left-color: var(--slate); }
+  .pattern-card:hover { transform: translateY(-3px); }
+  .pattern-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  .pattern-card p { font-size: 0.9rem; color: var(--slate); }
+  .pattern-card code {
+    font-family: 'Source Code Pro', monospace;
+    background: var(--light-amber);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+
+  /* --- Cheat Sheet --- */
+  .cheat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  .cheat-header {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 1rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .cheat-cell {
+    padding: 0.8rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e8e4dc;
+    background: #fff;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9rem;
+  }
+  .cheat-cell.op-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    text-align: left;
+    background: #fafaf7;
+  }
+  .cheat-fast { color: var(--teal); font-weight: 700; }
+  .cheat-slow { color: var(--rust); font-weight: 700; }
+
+  /* --- Footer --- */
+  .footer {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--slate);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 700px) {
+    .collision-grid { grid-template-columns: 1fr; }
+    .hash-table-diagram { grid-template-columns: 1fr; gap: 0.3rem; }
+    .cheat-grid { grid-template-columns: repeat(3, 1fr); font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Hashing, <span>Dicts</span> & Sets</h1>
+  <p>Interactive concept infographic &mdash; scroll down to explore</p>
+</div>
+
+<div class="container">
+
+  <!-- 1. HASH TABLE -->
+  <div class="section" id="s1">
+    <h2 class="section-title">How a Hash Table Works</h2>
+    <p class="section-sub">A hash function maps keys to bucket indices. Values are stored in the bucket. When two keys land on the same index, we have a <strong>collision</strong>.</p>
+
+    <div class="hash-table-diagram">
+      <div class="ht-key">"apple"</div>
+      <div class="ht-arrow">&rarr;</div>
+      <div class="ht-bucket">
+        <div class="bucket-slot" style="position:relative"><span class="bucket-index">[3]</span>("apple", 1.5)</div>
+      </div>
+
+      <div class="ht-key">"banana"</div>
+      <div class="ht-arrow">&rarr;</div>
+      <div class="ht-bucket">
+        <div class="bucket-slot" style="position:relative"><span class="bucket-index">[7]</span>("banana", 0.75)</div>
+      </div>
+
+      <div class="ht-key">"cherry"</div>
+      <div class="ht-arrow">&rarr;</div>
+      <div class="ht-bucket">
+        <div class="bucket-slot collision" style="position:relative"><span class="bucket-index">[3]</span>("apple", 1.5)</div>
+        <span class="chain-arrow">&rarr;</span>
+        <div class="bucket-slot collision">( "cherry", 2.0)</div>
+      </div>
+
+      <div class="ht-key">"date"</div>
+      <div class="ht-arrow">&rarr;</div>
+      <div class="ht-bucket">
+        <div class="bucket-slot" style="position:relative"><span class="bucket-index">[1]</span>("date", 3.0)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. COLLISION RESOLUTION -->
+  <div class="section" id="s2">
+    <h2 class="section-title">Collision Resolution</h2>
+    <p class="section-sub">Two strategies when multiple keys hash to the same bucket.</p>
+
+    <div class="collision-grid">
+      <div class="collision-card">
+        <h3>Chaining</h3>
+        <p>Each bucket is a linked list. Colliding keys are appended.</p>
+        <div class="chain-visual">
+          <div class="cv-box filled">"apple"</div>
+          <span class="cv-arrow">&rarr;</span>
+          <div class="cv-box collision-fill">"cherry"</div>
+          <span class="cv-arrow">&rarr;</span>
+          <div class="cv-box empty-slot">None</div>
+        </div>
+        <p><strong>Pros:</strong> Simple, never full.<br><strong>Cons:</strong> Extra memory, cache-unfriendly.</p>
+      </div>
+
+      <div class="collision-card">
+        <h3>Open Addressing</h3>
+        <p>Probe for the next empty slot in the array itself.</p>
+        <div class="probe-visual">
+          <div class="cv-box filled">[3] apple</div>
+          <div class="cv-box collision-fill" style="opacity:0.5">[3] &times;</div>
+          <span class="cv-arrow">&rarr;</span>
+          <div class="cv-box collision-fill">[4] cherry</div>
+          <div class="cv-box empty-slot">[5] &mdash;</div>
+        </div>
+        <p><strong>Pros:</strong> No pointers, cache-friendly.<br><strong>Cons:</strong> Clustering, table fills up.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. DICT & SET OPERATIONS -->
+  <div class="section" id="s3">
+    <h2 class="section-title">dict & set — Operations</h2>
+    <p class="section-sub">Average-case time complexity. Worst case O(n) only with pathological collisions.</p>
+
+    <table class="ops-table">
+      <tr>
+        <th>Operation</th>
+        <th>dict</th>
+        <th>set</th>
+        <th>list (compare)</th>
+      </tr>
+      <tr>
+        <td>Insert</td>
+        <td><span class="tag tag-green">O(1)</span></td>
+        <td><span class="tag tag-green">O(1)</span></td>
+        <td><span class="tag tag-green">O(1)</span> append</td>
+      </tr>
+      <tr>
+        <td>Lookup / <code>in</code></td>
+        <td><span class="tag tag-green">O(1)</span></td>
+        <td><span class="tag tag-green">O(1)</span></td>
+        <td><span class="tag tag-red">O(n)</span></td>
+      </tr>
+      <tr>
+        <td>Delete</td>
+        <td><span class="tag tag-green">O(1)</span></td>
+        <td><span class="tag tag-green">O(1)</span></td>
+        <td><span class="tag tag-red">O(n)</span></td>
+      </tr>
+      <tr>
+        <td>Iterate</td>
+        <td><span class="tag tag-yellow">O(n)</span></td>
+        <td><span class="tag tag-yellow">O(n)</span></td>
+        <td><span class="tag tag-yellow">O(n)</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 4. SET OPERATIONS VENN -->
+  <div class="section" id="s4">
+    <h2 class="section-title">Set Operations</h2>
+    <p class="section-sub">A = {1, 2, 3, 4} &nbsp;&nbsp; B = {3, 4, 5, 6}</p>
+
+    <div class="venn-container">
+      <!-- Union -->
+      <div class="venn-card">
+        <h4>Union &nbsp; A | B</h4>
+        <svg class="venn-svg" viewBox="0 0 200 140">
+          <circle class="venn-a" cx="75" cy="70" r="55" style="fill:rgba(45,106,106,0.5)"/>
+          <circle class="venn-b" cx="125" cy="70" r="55" style="fill:rgba(232,168,56,0.5)"/>
+        </svg>
+        <p>{1, 2, 3, 4, 5, 6}</p>
+      </div>
+      <!-- Intersection -->
+      <div class="venn-card">
+        <h4>Intersection &nbsp; A & B</h4>
+        <svg class="venn-svg" viewBox="0 0 200 140">
+          <defs>
+            <clipPath id="clipA"><circle cx="75" cy="70" r="55"/></clipPath>
+          </defs>
+          <circle class="venn-a" cx="75" cy="70" r="55" style="fill:rgba(45,106,106,0.15)"/>
+          <circle class="venn-b" cx="125" cy="70" r="55" style="fill:rgba(232,168,56,0.15)"/>
+          <circle cx="125" cy="70" r="55" clip-path="url(#clipA)" style="fill:rgba(196,69,54,0.55)"/>
+        </svg>
+        <p>{3, 4}</p>
+      </div>
+      <!-- Difference -->
+      <div class="venn-card">
+        <h4>Difference &nbsp; A - B</h4>
+        <svg class="venn-svg" viewBox="0 0 200 140">
+          <defs>
+            <clipPath id="clipB"><circle cx="125" cy="70" r="55"/></clipPath>
+            <mask id="maskDiff">
+              <rect width="200" height="140" fill="white"/>
+              <circle cx="125" cy="70" r="55" fill="black"/>
+            </mask>
+          </defs>
+          <circle cx="75" cy="70" r="55" style="fill:rgba(45,106,106,0.5)" mask="url(#maskDiff)"/>
+          <circle class="venn-a" cx="75" cy="70" r="55" style="fill:none"/>
+          <circle class="venn-b" cx="125" cy="70" r="55" style="fill:rgba(232,168,56,0.15)"/>
+        </svg>
+        <p>{1, 2}</p>
+      </div>
+      <!-- Symmetric Difference -->
+      <div class="venn-card">
+        <h4>Sym. Diff &nbsp; A ^ B</h4>
+        <svg class="venn-svg" viewBox="0 0 200 140">
+          <defs>
+            <mask id="maskSym">
+              <rect width="200" height="140" fill="white"/>
+              <circle cx="125" cy="70" r="55" fill="black"/>
+            </mask>
+            <mask id="maskSym2">
+              <rect width="200" height="140" fill="white"/>
+              <circle cx="75" cy="70" r="55" fill="black"/>
+            </mask>
+          </defs>
+          <circle cx="75" cy="70" r="55" style="fill:rgba(45,106,106,0.5)" mask="url(#maskSym)"/>
+          <circle cx="125" cy="70" r="55" style="fill:rgba(232,168,56,0.5)" mask="url(#maskSym2)"/>
+          <circle class="venn-a" cx="75" cy="70" r="55" style="fill:none"/>
+          <circle class="venn-b" cx="125" cy="70" r="55" style="fill:none"/>
+        </svg>
+        <p>{1, 2, 5, 6}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. HASHABLE VS UNHASHABLE -->
+  <div class="section" id="s5">
+    <h2 class="section-title">Hashable vs Unhashable</h2>
+    <p class="section-sub">Only hashable (immutable) objects can be dict keys or set members.</p>
+
+    <div class="hashable-grid">
+      <div class="hashable-item hashable-yes">int<span class="hashable-label">hashable</span></div>
+      <div class="hashable-item hashable-yes">float<span class="hashable-label">hashable</span></div>
+      <div class="hashable-item hashable-yes">str<span class="hashable-label">hashable</span></div>
+      <div class="hashable-item hashable-yes">bool<span class="hashable-label">hashable</span></div>
+      <div class="hashable-item hashable-yes">tuple<span class="hashable-label">hashable</span></div>
+      <div class="hashable-item hashable-yes">frozenset<span class="hashable-label">hashable</span></div>
+      <div class="hashable-item hashable-yes">None<span class="hashable-label">hashable</span></div>
+      <div class="hashable-item hashable-no">list<span class="hashable-label">unhashable</span></div>
+      <div class="hashable-item hashable-no">dict<span class="hashable-label">unhashable</span></div>
+      <div class="hashable-item hashable-no">set<span class="hashable-label">unhashable</span></div>
+    </div>
+  </div>
+
+  <!-- 6. INTERVIEW PATTERNS -->
+  <div class="section" id="s6">
+    <h2 class="section-title">Common Interview Patterns</h2>
+    <p class="section-sub">Five patterns that come up repeatedly in coding interviews involving hashing.</p>
+
+    <div class="patterns-grid">
+      <div class="pattern-card">
+        <h4>Frequency Map</h4>
+        <p>Count occurrences with a dict. Use for anagram check, top-K frequent, etc.</p>
+      </div>
+      <div class="pattern-card">
+        <h4>Complement Lookup</h4>
+        <p>Store seen values in a dict; for each new value check if <code>target - val</code> exists. Classic two-sum.</p>
+      </div>
+      <div class="pattern-card">
+        <h4>Sliding Window + Dict</h4>
+        <p>Track counts or membership in a window using a dict or set as you slide.</p>
+      </div>
+      <div class="pattern-card">
+        <h4>Group by Key</h4>
+        <p>Transform each item into a canonical key (e.g. sorted chars), group with <code>defaultdict(list)</code>.</p>
+      </div>
+      <div class="pattern-card">
+        <h4>Set Operations</h4>
+        <p>Union, intersection, difference to compare collections in O(n).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CHEAT SHEET -->
+  <div class="section" id="s7">
+    <h2 class="section-title">Complexity Cheat Sheet</h2>
+    <p class="section-sub">dict/set vs list — the key advantage is O(1) lookup.</p>
+
+    <div class="cheat-grid">
+      <div class="cheat-header">Operation</div>
+      <div class="cheat-header">dict / set</div>
+      <div class="cheat-header">list</div>
+
+      <div class="cheat-cell op-name">Insert</div>
+      <div class="cheat-cell cheat-fast">O(1)</div>
+      <div class="cheat-cell cheat-fast">O(1) append</div>
+
+      <div class="cheat-cell op-name">Lookup / in</div>
+      <div class="cheat-cell cheat-fast">O(1)</div>
+      <div class="cheat-cell cheat-slow">O(n)</div>
+
+      <div class="cheat-cell op-name">Delete</div>
+      <div class="cheat-cell cheat-fast">O(1)</div>
+      <div class="cheat-cell cheat-slow">O(n)</div>
+
+      <div class="cheat-cell op-name">Iterate</div>
+      <div class="cheat-cell">O(n)</div>
+      <div class="cheat-cell">O(n)</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  level-up-daily &mdash; Hashing, Dicts & Sets infographic
+</div>
+
+<script>
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
