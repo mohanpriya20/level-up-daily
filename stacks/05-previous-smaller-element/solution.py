@@ -18,6 +18,20 @@ def previous_smaller_elements(arr):
         stack.append(i)
     return result
 
+def previous_smaller_elements_v2(arr):
+    result = []
+    stack = []
+    for i in range(len(arr)):
+        while stack and stack[-1] > arr[i]:
+                stack.pop()
+        if stack and stack[-1] < arr[i]:
+            result.append(stack[-1])
+        else:
+            result.append(-1)
+        stack.append(arr[i])
+    return result
+    
+
 if __name__ == "__main__":
     arr = list(map(int, input("Enter list (space-separated): ").split()))
     nse = previous_smaller_elements(arr)

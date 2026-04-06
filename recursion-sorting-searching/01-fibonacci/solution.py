@@ -1,6 +1,6 @@
 # Fibonacci (recursion) — solution
 
-def fib(n):
+def fib(n, cache):
     """
     Return the nth Fibonacci number (0-indexed).
     fib(0)=0, fib(1)=1, fib(n)=fib(n-1)+fib(n-2).
@@ -12,14 +12,17 @@ def fib(n):
     # return fib(n-1)+fib(n-2)
     
     #memoization
-    fib_cache={0:0,1:1}
-    if n in fib_cache:
-        return fib_cache[n]
-    fib_cache[n]=fib(n-1)+fib(n-2)
-    return fib_cache[n]
+    if cache is None:
+        cache = {}
+    if n<=1:
+        return n
+    if n in cache:
+        return cache[n]
+    cache[n] = fib(n-1, cache) + fib(n-2, cache)
+    return cache[n]
 
 
 if __name__ == "__main__":
     n = int(input("Enter n: "))
-    result = fib(n)
+    result = fib(n, None)
     print("fib(n) =", result)

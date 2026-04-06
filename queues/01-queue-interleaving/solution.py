@@ -1,5 +1,9 @@
 # Queue Interleaving — solution with queue operations only and for even length
 
+#pop(0) has O(n) time complexity because it needs to shift all the elements to the 
+# left after the first element is removed(pop is done)
+#popleft() has O(1) time complexity because it doesn't need to shift any elements
+
 from collections import deque
 
 

@@ -20,6 +20,10 @@ def anagram_pairs(list1, list2):
                 pairs.append((w1, w2))
     return pairs
 
+#Every python file has a variable called __name__ which is set to the name of the file.
+#If the file is the main file, __name__ is set to "__main__".
+#If the file is imported as a module, __name__ is set to the name of the file.
+#This is used to prevent the code from being executed when the file is imported as a module.
 
 if __name__ == "__main__":
     list1 = input("Enter first list (space-separated words): ").split()

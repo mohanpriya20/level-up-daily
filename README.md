@@ -1,5 +1,9 @@
 # level-up-daily
 
+## Foundations
+
+[Time & space complexity](complexity/NOTES.md) — Big O, space vs time, recurrences, Master theorem, pitfalls.
+
 ## Strings
 
 
@@ -21,6 +25,7 @@
 
 ## Recursion, Searching and Sorting
 
+[Concept notes](recursion-sorting-searching/NOTES.md) (e.g. memoization, DP vs divide & conquer — expand over time)
 
 | Problem                                                                            | Solution                                                           | Explanation                                                              |
 | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------ |
@@ -68,4 +73,5 @@
 | Problem | Solution | Explanation |
 | ------- | -------- | ----------- |
 | [01 - Singly linked list](linked-lists/01-singly-linked-list/) | [solution](linked-lists/01-singly-linked-list/solution.py) | [explanation](linked-lists/01-singly-linked-list/explanation.md) |
+| [02 - Doubly linked list](linked-lists/02-doubly-linked-list/) | [solution](linked-lists/02-doubly-linked-list/solution.py) | [explanation](linked-lists/02-doubly-linked-list/explanation.md) |
 

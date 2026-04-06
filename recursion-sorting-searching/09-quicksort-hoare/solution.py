@@ -10,6 +10,7 @@ def partition_hoare(arr, low, high):
     Two pointers from both ends: left side >= pivot, right side <= pivot.
     Return partition index.
     """
+    #pivot is the splitting rule for the array
     pivot = find_median(arr, low, high)
     i, j = low, high
     while True:
